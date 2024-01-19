@@ -54,6 +54,7 @@ export default function Page() {
                         {Numbers.map((elem) => {
                             return (
                                 <Card
+                                    key={elem.id}
                                     isPressable
                                     shadow="none"
                                     className="h-32 flex-grow min-w-64"
@@ -77,6 +78,7 @@ export default function Page() {
                         {Numbers.map((elem) => {
                             return (
                                 <Card
+                                    key={elem.id}
                                     isPressable
                                     shadow="none"
                                     className="h-32 flex-grow min-w-64"
