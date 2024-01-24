@@ -1,5 +1,5 @@
 // Home Page
-
+'use client';
 import {
     Button,
     Card,
@@ -12,6 +12,7 @@ import {
     Pagination,
 } from '@nextui-org/react';
 import React from 'react';
+import Link from 'next/link';
 import Container from '@/components/container.component';
 import { Numbers } from '@/data/numbers';
 export default function Page() {
@@ -21,27 +22,37 @@ export default function Page() {
         <div className="light">
             {/* Banner section */}
             <section className="my-16">
-                <Container>
+                <Container classname="flex flex-col gap-6">
                     {/* Banner content */}
-                    <div className="w-full h-[480px] bg-primary rounded-3xl p-6 relative">
-                        <h1 className="text-background font-bold text-4xl mb-4">
-                            Lorem ipsum dolor sit amet
-                        </h1>
+                    <h1 className="text-foreground font-bold text-4xl">
+                        Lorem ipsum dolor sit amet
+                    </h1>
 
-                        <p className="text-[#e9e9e9]">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit. Et voluptate rerum necessitatibus distinctio
-                            ratione esse ipsa nulla eveniet vitae. Quam eligendi
-                            praesentium amet cum maiores perferendis. Doloremque
-                            tempore ratione illo?
-                        </p>
+                    <p className="">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Et voluptate rerum necessitatibus distinctio
+                        ratione esse ipsa nulla eveniet vitae. Quam eligendi
+                        praesentium amet cum maiores perferendis. Doloremque
+                        tempore ratione illo?
+                    </p>
 
+                    <div>
                         <Button
                             size="lg"
-                            className="bg-background absolute bottom-6 z-10"
+                            fullWidth
+                            className="bg-primary text-background mb-2"
                         >
-                            Узнать подробнее
+                            Выбрать страну
                         </Button>
+
+                        <Link
+                            href={'https://t.me/rauanthesaint'}
+                            target="blank"
+                        >
+                            <Button size="lg" fullWidth variant="bordered">
+                                Задать вопрос
+                            </Button>
+                        </Link>
                     </div>
                 </Container>
             </section>
@@ -57,14 +68,17 @@ export default function Page() {
                                     key={elem.id}
                                     isPressable
                                     shadow="none"
-                                    className="h-32 flex-grow min-w-64"
+                                    className="flex-grow min-w-64"
                                 >
-                                    <CardHeader className="text-3xl font-bold">
+                                    <CardHeader className="text-5xl font-bold">
                                         {elem.number}
                                     </CardHeader>
-                                    <CardBody className="text-sm">
-                                        {elem.description}
+                                    <CardBody>
+                                        jdkjwedjkwejkdklwejdkjwedk
                                     </CardBody>
+                                    <CardFooter className="text-sm">
+                                        {elem.description}
+                                    </CardFooter>
                                 </Card>
                             );
                         })}
@@ -74,25 +88,15 @@ export default function Page() {
 
             <section className="my-16">
                 <Container>
-                    <div className="flex flex-wrap gap-2">
-                        {Numbers.map((elem) => {
-                            return (
-                                <Card
-                                    key={elem.id}
-                                    isPressable
-                                    shadow="none"
-                                    className="h-32 flex-grow min-w-64"
-                                >
-                                    <CardHeader className="text-3xl font-bold">
-                                        {elem.number}
-                                    </CardHeader>
-                                    <CardBody className="text-sm">
-                                        {elem.description}
-                                    </CardBody>
-                                </Card>
-                            );
-                        })}
-                    </div>
+                    <Accordion>
+                        <AccordionItem
+                            key={1}
+                            aria-label="Accordion-1"
+                            title="Accordion 1"
+                        >
+                            {defaultContent}
+                        </AccordionItem>
+                    </Accordion>
                 </Container>
             </section>
 
